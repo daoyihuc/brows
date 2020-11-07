@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Browsesocial</string>
+
+
+    <!--加载提示语-->
+    <string name="loading_text">加载中...</string>
+
+    <!--开屏提示语-->
+    <string name="firstTitle">凡所际遇  绝非偶然</string>
+    <!--开屏提示语-->
+    <string name="firstTitle2">进入聊天世界去结识有趣的人</string>
+    <string name="firstTitle3">点击进入</string>
+
+    <!--登录-->
+    <string name="loginLablePhone">手机号</string>
+    <string name="loginLablePass">请输入密码</string>
+
+</resources>

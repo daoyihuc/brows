@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/loginback"
+    >
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textColor="#ffffffff"
+        android:textSize="16sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="12dp"
+        android:padding="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="111dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="130dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/logo"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="欢迎来到某某聊天室"
+        android:textColor="#fffefefe"
+        android:textSize="13sp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        >
+        <Button
+            android:id="@+id/phoneButton"
+            android:layout_width="285dp"
+            android:layout_height="44dp"
+            android:text="手机号登录"
+            android:textColor="@color/whilte"
+            android:background="@drawable/shape_phone"
+            android:layout_gravity="center_horizontal"
+            />
+        <Button
+            android:id="@+id/wxButton"
+            android:layout_width="285dp"
+            android:layout_height="44dp"
+            android:text="微信登录"
+            android:textColor="@color/whilte"
+            android:background="@drawable/shape_wx"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录即代表同意"
+                android:textColor="@color/whilte"
+                android:theme="@style/MyCheckBox"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《某某隐私用户协议》"
+                android:textColor="@color/blue"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

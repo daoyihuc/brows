@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    >
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/tupian"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="聊天室的名字"
+        android:textColor="#ff272a29"
+        android:textSize="13sp"
+        android:layout_toRightOf="@id/img"
+        android:layout_marginLeft="12dp"
+        />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="聊天室描述聊天室描述"
+        android:textColor="#ffacacac"
+        android:textSize="12sp"
+        android:layout_below="@id/title"
+        android:layout_toRightOf="@id/img"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:id="@id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有128个人在聊"
+        android:textColor="#ffffa303"
+        android:textSize="12sp"
+        android:layout_below="@id/details"
+        android:layout_toRightOf="@id/img"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="21dp"
+        android:text="进去聊聊"
+        android:textColor="#fffffeff"
+        android:textSize="12sp"
+        android:background="@drawable/shap_gomessage"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>

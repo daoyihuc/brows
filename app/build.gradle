@@ -1,0 +1,146 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.daoyiksw.browsesocial"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true//方法数超过6.5K进行分包处理
+    }
+
+    // 视图绑定
+    viewBinding {
+        enabled = true
+    }
+
+
+    // 签名
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword 'yw0924'
+            storeFile file('D:\\daoyi\\AndroidProject\\Browsesocial/daoyi.jks')
+//            storeFile file('/Users/daoyi/Desktop/flutter_project/shenyue/shanyue.jks')
+            storePassword 'yw0924'
+            v2SigningEnabled true
+        }
+        debug {
+            keyAlias 'key0'
+            keyPassword 'yw0924'
+            storeFile file('D:/daoyi/AndroidProject/Browsesocial/daoyi.jks')
+//            storeFile file('/Users/daoyi/Desktop/flutter_project/shenyue/shanyue.jks')
+            storePassword 'yw0924'
+            v2SigningEnabled true
+        }
+    }
+
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+
+//            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+    //
+    //use legacy for android 6.0
+    useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    // 组件架构
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.0-beta01'
+
+
+    //rxjava跟retrofit的引用网络请求框架的搭建
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.2.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    /*okhttp3的日志打印*/
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+
+    /*retrofit2*/
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    /*gason解析器*/
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+
+    //腾讯的Bugly异常上传
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+
+    //BaseQuickAdapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //banner
+    implementation 'com.youth.banner:banner:2.0.12'
+
+    //下拉刷新控件
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-20'
+
+    // lottie
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    // cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //multidex兼容包，配合AndroidStudio实现了一个APK包含多个dex的功能
+    implementation 'com.android.support:multidex:1.0.1'
+
+
+    def room_version = "2.2.5"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    //2.0.5  AndroidX版本、支持ViewPager2
+    implementation 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
+
+    // 状态栏修改
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+
+
+}

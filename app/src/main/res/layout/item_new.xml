@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:text="夏季地毯保养方法介绍 地毯清洗需注意什么?"
+        android:textColor="#ff333333"
+        android:textSize="13sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        />
+
+    <ImageView
+        android:id="@+id/newimage"
+        android:layout_width="104dp"
+        android:layout_height="72dp"
+        android:layout_alignParentRight="true"
+        />
+
+    <ImageView
+        android:id="@+id/useriamge"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/homebanner"
+        android:scaleType="fitXY"
+        android:layout_below="@id/name"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="张张装饰"
+        android:textColor="#ff838181"
+        android:textSize="12sp"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/useriamge"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="7dp"
+        />
+
+    <TextView
+        android:id="@+id/readcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="630"
+        android:textColor="#ff838181"
+        android:textSize="12sp"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/username"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="38dp"
+        android:drawableLeft="@mipmap/pingl"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical|center"
+        />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="今日头条"
+        android:textColor="#ff838181"
+        android:textSize="12sp"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/readcount"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="19dp"
+        />
+
+
+
+
+</RelativeLayout>
