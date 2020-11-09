@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whilte"
+    >
+
+
+    <ImageView
+        android:id="@+id/header_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@mipmap/beij1"
+        />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.daoyiksw.browsesocial.views.compant.Titlabar
+                android:id="@+id/titlebar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            
+            <ImageView
+                android:id="@+id/useriamge"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/userimage"
+                android:layout_below="@id/titlebar"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="17dp"
+                />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我是张张张"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:textSize="19sp"
+                android:layout_below="@id/titlebar"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/useriamge"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="编辑资料"
+                android:textColor="#ffffffff"
+                android:textSize="12sp"
+                android:layout_below="@id/username"
+                android:layout_toRightOf="@id/useriamge"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                />
+            <ImageView
+                android:id="@+id/vip_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/huangjnhuiyuan1"
+                android:layout_below="@id/titlebar"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/username"
+                android:layout_marginLeft="10dp"
+                />
+
+            <RelativeLayout
+                android:id="@+id/box1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/useriamge"
+                android:background="@mipmap/myback1"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/zuashi"
+                    android:drawablePadding="10dp"
+                    android:text="VIP会员"
+                    android:textColor="#F3D4A8"
+                    android:textSize="13sp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="25dp"
+                    />
+                <Button
+                    android:layout_width="83dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_myback"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:text="立即开通"
+                    android:textColor="#ff361a09"
+                    android:textSize="11sp"
+                    />
+
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menuList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/box1"
+                android:background="@drawable/shap_backmessage"
+                android:overScrollMode="never"
+                />
+        </RelativeLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</RelativeLayout>

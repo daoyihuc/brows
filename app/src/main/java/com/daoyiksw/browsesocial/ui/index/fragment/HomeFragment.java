@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ import com.daoyiksw.browsesocial.ui.index.bean.MenuBean;
 import com.daoyiksw.browsesocial.ui.index.bean.NewBean;
 import com.daoyiksw.browsesocial.ui.index.bean.image_banner_home;
 import com.daoyiksw.browsesocial.untils.MacUtils;
+import com.daoyiksw.browsesocial.untils.StatusBarUtils_d;
 import com.daoyiksw.browsesocial.views.compant.Titlabar;
 import com.jaeger.library.StatusBarUtil;
 import com.youth.banner.Banner;
@@ -69,6 +71,8 @@ public class HomeFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        this.changeStatus();
+
         view=inflater.inflate(R.layout.fragment_home,null,false);
 
         initData();
@@ -80,13 +84,17 @@ public class HomeFragment extends BaseFragment {
     protected void initUI() {
         banner = view.findViewById(R.id.banner);
         box= view.findViewById(R.id.box);
-        titlabar=view.findViewById(R.id.titlebar);
-        titlabar.setCenterTitle("10");
-        titlabar.addviews();
+//        titlabar=view.findViewById(R.id.titlebar);
+//        titlabar.setCenterTitle("10");
+//        titlabar.addviews();
         setBanner();
         setMenuRecycler();
         setHotRecycler();
         setNewRecycler();
+        int statusBarHeight = StatusBarUtils_d.getStatusBarHeight(getActivity());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1,-1);
+        layoutParams.setMargins(0,statusBarHeight,0,00);
+        box.setLayoutParams(layoutParams);
     }
 
     @Override
@@ -195,6 +203,10 @@ public class HomeFragment extends BaseFragment {
 
     //状态栏修改
     public void changeStatus(){
+
+//        StatusBarUtil.setColor(getActivity(),0xffffffff,0);
+//        StatusBarUtils_d.createStatusView(getActivity());
+//        MacUtils.setStatusText(getActivity(),true);
         StatusBarUtil.setTranslucentForImageView(getActivity(),0,box);
     }
 

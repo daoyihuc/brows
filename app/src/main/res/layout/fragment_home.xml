@@ -4,21 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whilte"
+    android:background="#eeeeee"
+
     >
 
-
-    <com.daoyiksw.browsesocial.views.compant.Titlabar
-        android:id="@id/titlebar"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:visibility="invisible"
-        />
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/box"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/titlebar"
         >
         <RelativeLayout
             android:layout_width="match_parent"

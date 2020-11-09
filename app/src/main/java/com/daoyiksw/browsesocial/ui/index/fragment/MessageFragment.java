@@ -18,6 +18,7 @@ import com.daoyiksw.browsesocial.pub.holder.WrapContentLinearLayoutManager;
 import com.daoyiksw.browsesocial.ui.index.adapter.MessageAdapter;
 import com.daoyiksw.browsesocial.ui.index.bean.MessageListBean;
 import com.daoyiksw.browsesocial.untils.MacUtils;
+import com.daoyiksw.browsesocial.untils.StatusBarUtils_d;
 import com.daoyiksw.browsesocial.views.compant.Titlabar;
 import com.jaeger.library.StatusBarUtil;
 
@@ -60,9 +61,14 @@ public class MessageFragment extends BaseFragment  {
     @Override
     protected void initUI() {
         box=view.findViewById(R.id.box);
+        int statusBarHeight = StatusBarUtils_d.getStatusBarHeight(getActivity());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1,-1);
+        layoutParams.setMargins(0,statusBarHeight,0,0);
+        box.setLayoutParams(layoutParams);
+
         // 导航栏
         titlabar=view.findViewById(R.id.titlebar);
-        titlabar.setCenterTitle("手机号登录");
+        titlabar.setCenterTitle("聊天室");
         titlabar.setCenterColor(0xffffffff);
         titlabar.setLeftMargin(MacUtils.dpto(10),0,0,0);
 //        titlabar.setLeftDrawable(R.drawable.ic_baseline_arrow_back_ios_24,0x90000000);
@@ -75,6 +81,9 @@ public class MessageFragment extends BaseFragment  {
         });
 
         setMessageList();
+
+
+
     }
 
     @Override
@@ -97,7 +106,7 @@ public class MessageFragment extends BaseFragment  {
 
     //状态栏修改
     public void changeStatus(){
-        StatusBarUtil.setTranslucentForImageView(getActivity(),0,box);
+        StatusBarUtil.setTranslucentForImageViewInFragment(getActivity(),0,box);
     }
     // recyclerview
     private void setMessageList(){

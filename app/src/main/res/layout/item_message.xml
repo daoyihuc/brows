@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="20dp"
     android:paddingTop="20dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -54,6 +53,7 @@
         android:layout_toRightOf="@id/img"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="10dp"
+
         />
     <Button
         android:layout_width="60dp"
@@ -64,6 +64,13 @@
         android:background="@drawable/shap_gomessage"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#eeeeee"
+        android:layout_below="@id/count"
+        android:layout_marginTop="20dp"
         />
 
 </RelativeLayout>

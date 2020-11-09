@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="12dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    >
+    
+    <ImageView
+        android:id="@+id/menuicon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/tupian"
+        android:layout_marginRight="16dp"
+        />
+
+    <TextView
+        android:id="@+id/menutext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账户"
+        android:textColor="#ff333333"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/menuicon"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="看看谁送了礼物"
+        android:textColor="#ffc8c8c8"
+        android:textSize="13sp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:drawableRight="@mipmap/jiantou"
+        android:drawablePadding="10dp"
+        android:drawableTint="#B5B5B5"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        />
+
+</RelativeLayout>

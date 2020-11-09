@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.daoyiksw.browsesocial.consts.BaseActivity;
 import com.daoyiksw.browsesocial.ui.index.fragment.HomeFragment;
 import com.daoyiksw.browsesocial.ui.index.fragment.MessageFragment;
+import com.daoyiksw.browsesocial.ui.index.fragment.MyFragment;
 import com.daoyiksw.browsesocial.untils.MacUtils;
 import com.next.easynavigation.view.EasyNavigationBar;
 
@@ -43,7 +44,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        MacUtils.initWindow(this,0xffffffff,false,null,true);
-        MacUtils.clearStatus(MainActivity.this);
+//        MacUtils.clearStatus(MainActivity.this);
 
         setContentView(R.layout.activity_main);
         initData();
@@ -94,7 +95,7 @@ public class MainActivity extends BaseActivity {
                 .canScroll(true)    //Viewpager能否左右滑动
                 .mode(EasyNavigationBar.NavigationMode.MODE_NORMAL)   //默认MODE_NORMAL 普通模式  //MODE_ADD 带加号模式
                 .navigationHeight(60)  //导航栏高度
-                .lineHeight(10)         //分割线高度  默认1px
+//                .lineHeight(10)         //分割线高度  默认1px
 //                .lineColor(Color.parseColor("#ff0000"))
                 .hasPadding(true)    //true ViewPager布局在导航栏之上 false有重叠
                 .centerNormalTextColor(Color.parseColor("#ff0000"))    //加号文字未选中时字体颜色
@@ -110,6 +111,7 @@ public class MainActivity extends BaseActivity {
 //        list.add();
         list.add(new HomeFragment());
         list.add(new MessageFragment());
+        list.add(new MyFragment());
     }
 
     @Override
