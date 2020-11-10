@@ -45,6 +45,42 @@
             android:screenOrientation="portrait"
             >
         </activity>
+        <!--setting -->
+        <activity android:name=".ui.user.activity.SettingActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <!--userinfo -->
+        <activity android:name=".ui.user.activity.UserInfoActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <!--comment -->
+        <activity android:name=".ui.user.activity.CommentActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <!--account -->
+        <activity android:name=".ui.user.activity.AccountActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <!--AccountRecords (账户记录) -->
+        <activity android:name=".ui.user.activity.AccountRecordsActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <!-- (礼物收益) -->
+        <activity android:name=".ui.user.activity.GiftIncomeActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            >
+        </activity>
         <!--主页-->
         <activity android:name=".MainActivity"
             android:launchMode="singleInstance"

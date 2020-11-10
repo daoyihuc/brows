@@ -203,6 +203,12 @@ public class Titlabar extends RelativeLayout implements View.OnClickListener{
         Left_TextView.setLayoutParams(Left_TextView_params);
     }
 
+    public void setRightMargin(int left, int top, int right, int bottom) {
+
+        Right_Textview_params.setMargins(left, top, right, bottom);
+        Right_Textview.setLayoutParams(Right_Textview_params);
+    }
+
     //监听设置
     public void setRightOnClickListener(OnClickListener onClickListener){
         Right_Textview.setOnClickListener(onClickListener);

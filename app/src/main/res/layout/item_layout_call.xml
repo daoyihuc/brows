@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="53dp"
+        android:background="@drawable/item_selectphoto_shape"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/phonelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服电话"
+                android:textColor="#ff0d0d0d"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                />
+            <View
+                android:id="@+id/phonelabel1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/phonelabel"
+                android:layout_centerInParent="true"
+                android:background="#DAD9DD"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/text_phonenum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:lineSpacingExtra="5dp"
+                android:layout_below="@id/phonelabel1"
+                android:gravity="center"
+                android:text="100010"
+                android:textColor="#ff060e29"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerInParent="true"
+            android:background="#DAD9DD"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/relative_cancle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/line">
+
+
+
+                <TextView
+                    android:id="@+id/text_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="取消"
+                    android:textColor="#999999"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="#DAD9DD"></View>
+
+            <RelativeLayout
+                android:id="@+id/relative_sure"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/line">
+
+                <TextView
+                    android:id="@+id/ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="呼叫"
+                    android:textColor="#8382F8"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
