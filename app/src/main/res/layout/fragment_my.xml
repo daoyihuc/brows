@@ -95,6 +95,7 @@
                     android:layout_marginLeft="25dp"
                     />
                 <Button
+                    android:id="@+id/openVIP"
                     android:layout_width="83dp"
                     android:layout_height="30dp"
                     android:background="@drawable/shape_myback"

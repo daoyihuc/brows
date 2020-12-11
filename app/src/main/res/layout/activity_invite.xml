@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/yaoqi"
+        android:scaleType="fitXY"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/box"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.daoyiksw.browsesocial.views.compant.Titlabar
+                android:id="@+id/titleBar"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/invite"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="92dp"
+                >
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的邀请码"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="27dp"
+                    />
+                <TextView
+                    android:id="@+id/invide_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345678"
+                    android:textColor="#ffda4c24"
+                    android:textSize="16sp"
+                    android:layout_below="@id/label"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:id="@+id/label1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="邀请的好友也可在注册时直接填写邀请码"
+                    android:textColor="#ff999999"
+                    android:textSize="10sp"
+                    android:layout_below="@id/invide_code"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    />
+                <ImageView
+                    android:id="@+id/qrcode"
+                    android:layout_width="159dp"
+                    android:layout_height="159dp"
+                    android:layout_below="@id/label1"
+                    android:src="@mipmap/tupian"
+                    android:scaleType="fitXY"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="33dp"
+                    />
+                <TextView
+                    android:id="@+id/label3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="扫码下载APP"
+                    android:textColor="#ff999999"
+                    android:textSize="10sp"
+                    android:layout_below="@id/qrcode"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="19dp"
+                    />
+
+                <Button
+                    android:layout_width="281dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_below="@id/label3"
+                    android:layout_centerHorizontal="true"
+                    android:text="保存图片"
+                    android:textColor="#ffffffff"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="36dp"
+                    android:background="@drawable/shape_invite_button"
+                    />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>

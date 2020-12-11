@@ -39,4 +39,57 @@
         <item name="android:backgroundDimAmount">0.5</item>  <!--背景透明度-->
     </style>
 
+    <!--图片选择 - 白色主题样式，注意每一项都不能少-->
+    <style name="picture_white_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--标题栏背景色-->
+        <item name="colorPrimary">@color/whilte</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">@color/whilte</item>
+        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
+        <item name="picture.statusFontColor">true</item>
+        <!--返回键图标-->
+        <item name="picture.leftBack.icon">@drawable/return_black_icon</item>
+        <!--标题下拉箭头-->
+        <item name="picture.arrow_down.icon">@drawable/select_img_down_arrow</item>
+        <!--标题上拉箭头-->
+        <item name="picture.arrow_up.icon">@drawable/select_img_up_arrow</item>
+        <!--标题文字颜色-->
+        <item name="picture.title.textColor">@color/back</item>
+        <!--标题栏右边文字-->
+        <item name="picture.right.textColor">@color/back</item>
+        <!--图片列表勾选样式-->
+        <item name="picture.checked.style">@drawable/picture_checkbox_selector</item>
+        <!--开启图片列表勾选数字模式,开启的话勾选样式要换-->
+        <item name="picture.style.checkNumMode">false</item>
+        <!--选择图片样式0/9-->
+        <item name="picture.style.numComplete">false</item>
+        <!--图片列表底部背景色-->
+        <item name="picture.bottom.bg">@color/whilte</item>
+        <!--图片列表预览文字颜色-->
+        <item name="picture.preview.textColor">#FA632D</item>
+        <!--图片列表已完成文字颜色-->
+        <item name="picture.complete.textColor">#FA632D</item>
+        <!--图片已选数量圆点背景色-->
+        <item name="picture.num.style">@drawable/picture_num_oval</item>
+        <!--预览界面标题栏背景色-->
+        <item name="picture.ac_preview.title.bg">@color/whilte</item>
+        <!--预览界面标题文字颜色-->
+        <item name="picture.ac_preview.title.textColor">@color/back</item>
+        <!--预览界面已完成文字颜色-->
+        <item name="picture.ac_preview.complete.textColor">#FA632D</item>
+        <!--预览界面底部背景色-->
+        <item name="picture.ac_preview.bottom.bg">@color/picture_color_fa</item>
+        <!--预览界面返回箭头-->
+        <item name="picture.preview.leftBack.icon">@drawable/return_black_icon</item>
+        <!--裁剪页面标题背景色-->
+        <item name="picture.crop.toolbar.bg">@color/whilte</item>
+        <!--裁剪页面状态栏颜色-->
+        <item name="picture.crop.status.color">@color/whilte</item>
+        <!--裁剪页面标题文字颜色-->
+        <item name="picture.crop.title.color">@color/back</item>
+        <!--相册文件夹列表选中图标-->
+        <item name="picture.folder_checked_dot">@drawable/picture_orange_oval</item>
+    </style>
+
 </resources>

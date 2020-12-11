@@ -17,6 +17,11 @@ import com.tencent.bugly.crashreport.CrashReport;
  */
 public class MyApplication extends Application {
 
+
+    public static MyApplication mContext;
+    public static  MyApplication instance() {
+        return mContext;
+    }
     public MyApplication() {
         super();
     }
@@ -28,6 +33,8 @@ public class MyApplication extends Application {
         MacUtils.init(this);
         // tencent bugly
         CrashReport.initCrashReport(getApplicationContext(), "f58fe9ece8", false);
+
+        GlobalData.mContext=this;
 
     }
 

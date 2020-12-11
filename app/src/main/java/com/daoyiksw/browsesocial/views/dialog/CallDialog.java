@@ -20,8 +20,8 @@ public class CallDialog extends Dialog implements View.OnClickListener {
     private int layoutResID;//布局文件id
     private int[] listenedItems;//存放控件id的数组
     private RelativeLayout relative_sure, relative_cancle;
-    private TextView text_phonenum,text_ok, text_cancel;
-    private String phonenum;
+    private TextView text_phonenum,text_ok, text_cancel,phonelabel1;
+    private String phonenum,label="";
     private String string_ok, string_cancel;
 
     public CallDialog(Context context) {
@@ -59,6 +59,11 @@ public class CallDialog extends Dialog implements View.OnClickListener {
         setCanceledOnTouchOutside(true);
         setContentView(R.layout.item_layout_call);
         text_phonenum = findViewById(R.id.text_phonenum);
+        phonelabel1=findViewById(R.id.phonelabel);
+        if(label.equals("")||label==null){
+            label="客服电话";
+        }
+        phonelabel1.setText(label);
         text_phonenum.setText(phonenum);
         relative_sure = findViewById(R.id.relative_sure);
         relative_sure.setOnClickListener(this);
@@ -124,5 +129,9 @@ public class CallDialog extends Dialog implements View.OnClickListener {
     //设置提示信息
     public void setMessage(String text){
         this.phonenum=text;
+    }
+    // 设置标题
+    public void setTitle(String title){
+        this.label=title;
     }
 }

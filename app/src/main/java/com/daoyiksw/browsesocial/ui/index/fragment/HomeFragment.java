@@ -1,13 +1,24 @@
 package com.daoyiksw.browsesocial.ui.index.fragment;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ValueCallback;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +27,7 @@ import com.daoyiksw.browsesocial.R;
 import com.daoyiksw.browsesocial.consts.BaseFragment;
 import com.daoyiksw.browsesocial.pub.holder.ItemOffsetDecoration;
 import com.daoyiksw.browsesocial.pub.holder.MultiplePagerScaleInTransformer;
+import com.daoyiksw.browsesocial.pub.holder.NpaGridLayoutManager;
 import com.daoyiksw.browsesocial.pub.holder.RecycleViewDivider;
 import com.daoyiksw.browsesocial.pub.holder.SpacesItemDecoration;
 import com.daoyiksw.browsesocial.pub.holder.SpacesItemDecorations;
@@ -31,6 +43,7 @@ import com.daoyiksw.browsesocial.ui.index.bean.image_banner_home;
 import com.daoyiksw.browsesocial.untils.MacUtils;
 import com.daoyiksw.browsesocial.untils.StatusBarUtils_d;
 import com.daoyiksw.browsesocial.views.compant.Titlabar;
+import com.daoyiksw.browsesocial.webview.MyWebChromeClient;
 import com.jaeger.library.StatusBarUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.config.BannerConfig;
@@ -61,13 +74,19 @@ public class HomeFragment extends BaseFragment {
     private MenuAdapter menuAdapter;// 适配器
     private HotAdapter hotAdapter; // 今日热榜适配器
     private NewAdapter newAdapter;// 新闻资讯适配器
+    private WebView webView; // 网页展示
 
 
+    private String url;
     private List<image_banner_home> list;// banner
     private List<MenuBean> list_menu;// 菜单
     private List<HotBean> list_hot;// 今日热榜
     private List<NewBean> list_new;// 新闻资讯
 
+
+    {
+        url = "https://www.baidu.com";
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -89,8 +108,7 @@ public class HomeFragment extends BaseFragment {
 //        titlabar.addviews();
         setBanner();
         setMenuRecycler();
-        setHotRecycler();
-        setNewRecycler();
+        setWebView();
         int statusBarHeight = StatusBarUtils_d.getStatusBarHeight(getActivity());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1,-1);
         layoutParams.setMargins(0,statusBarHeight,0,00);
@@ -171,34 +189,71 @@ public class HomeFragment extends BaseFragment {
     // 菜单recycle
     private void setMenuRecycler(){
         menuRecycler=view.findViewById(R.id.menuRecycler);
-        WrapContentLinearLayoutManager linearLayoutManager=new WrapContentLinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        NpaGridLayoutManager linearLayoutManager=new NpaGridLayoutManager(getActivity(),5);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         menuRecycler.setLayoutManager(linearLayoutManager);
-        menuRecycler.addItemDecoration(new SpacesItemDecorations(MacUtils.dpto(1),MacUtils.dpto(16)));
+        menuRecycler.addItemDecoration(new ItemOffsetDecoration(15));
         menuAdapter=new MenuAdapter(getActivity(),list_menu);
         menuRecycler.setAdapter(menuAdapter);
     }
-    // 今日热榜
-    private void setHotRecycler(){
-        hotRecycler=view.findViewById(R.id.hotlist);
-        WrapContentLinearLayoutManager linearLayoutManager=new WrapContentLinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        hotRecycler.setLayoutManager(linearLayoutManager);
-        hotRecycler.addItemDecoration(new ItemOffsetDecoration(MacUtils.dpto(5)));
-        hotAdapter=new HotAdapter(getActivity(), list_hot);
-        hotRecycler.setAdapter(hotAdapter);
+    // webview
+    private void  setWebView(){
+        webView = view.findViewById(R.id.webview);
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setSupportZoom(false);
+        settings.setBuiltInZoomControls(false);
+        settings.setDisplayZoomControls(false);
+        // 其他细节操作
+        settings.setCacheMode(settings.LOAD_NO_CACHE); // 关闭webview中缓存
+        settings.setAllowFileAccess(true); // 设置可以访问文件
+        settings.setJavaScriptCanOpenWindowsAutomatically(true); // 支持通过JS打开新窗口
+        settings.setLoadsImagesAutomatically(true); // 支持自动加载图片
+        settings.setDefaultTextEncodingName("utf-8");// 设置编码格式
+        webView.setWebChromeClient(new MyWebChromeClient());
+        webView.loadUrl(url);
+        webView.setWebViewClient(new WebViewClient() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//                return super.shouldOverrideUrlLoading(view, request);
+                String urls = request.getUrl().toString();
+                try {
+                    if (urls.startsWith("http:") || urls.startsWith("https:")) {
+                        view.loadUrl(urls);
+                    } else {
+//                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls));
+//                        startActivity(intent);
+                    }
+                    return true;
+                } catch (Exception e){
+                    return false;
+                }
+            }
 
-    }
-    // 新闻适配器
-    private void setNewRecycler(){
-        newRecycler=view.findViewById(R.id.newlist);
-        WrapContentLinearLayoutManager linearLayoutManager=new WrapContentLinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        newRecycler.setLayoutManager(linearLayoutManager);
-        newRecycler.addItemDecoration(new ItemOffsetDecoration(MacUtils.dpto(10)));
-        newRecycler.addItemDecoration(new RecycleViewDivider(getActivity(),LinearLayoutManager.HORIZONTAL,1,0xffEBEBEB));
-        newAdapter=new NewAdapter(getActivity(), list_new);
-        newRecycler.setAdapter(newAdapter);
+            //页面加载结束时
+
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+            }
+            //界面开始加载时
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+//                dailog.show();
+
+            }
+            //正在加载时
+
+            @Override
+            public void onLoadResource(WebView view, String url) {
+                super.onLoadResource(view, url);
+//                dailog.show();
+
+            }
+        });
     }
 
     //状态栏修改

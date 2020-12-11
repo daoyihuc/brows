@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.daoyiksw.browsesocial.R;
 import com.daoyiksw.browsesocial.untils.MacUtils;
 import com.daoyiksw.browsesocial.views.compant.Titlabar;
 
@@ -86,6 +87,7 @@ public class BaseTitleActivity extends BaseActivity  {
         titlabar.setCenterFontSize(18);
         titlabar.setCenterFontStyle(1);
         titlabar.setLeftPadding(MacUtils.dpto(20),0,MacUtils.dpto(5),0);
+        titlabar.setLeftDrawable(R.drawable.ic_baseline_arrow_back_ios_24,0x90000000);
         titlabar.setLeftOnClickListener(leftonclickListener);
         titlabar.setBackGroundColor(0xffffffff);
         titlabar.addviews();

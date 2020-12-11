@@ -71,91 +71,18 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/menuRecycler"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/banner"
                         android:layout_marginTop="17dp"
-                        android:layout_centerHorizontal="true"
                         />
-                    <RelativeLayout
-                        android:id="@+id/title1"
+                    <WebView
+                        android:id="@+id/webview"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_height="match_parent"
                         android:layout_below="@id/menuRecycler"
-                        android:layout_marginTop="38dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="今日热榜"
-                            android:textColor="#222222"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="更多 >"
-                            android:textColor="#ff999999"
-                            android:textSize="13sp"
-                            android:layout_alignParentRight="true"
-
-                            />
-                    </RelativeLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/hotlist"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/title1"
-                        android:overScrollMode="never"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         />
-
-                    <RelativeLayout
-                        android:id="@+id/title2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_below="@id/hotlist"
-                        android:layout_marginTop="38dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="最新资讯"
-                            android:textColor="#222222"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="更多 >"
-                            android:textColor="#ff999999"
-                            android:textSize="13sp"
-                            android:layout_alignParentRight="true"
-
-                            />
-                    </RelativeLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/newlist"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/title2"
-                        android:overScrollMode="never"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
-                        />
-
 
                 </RelativeLayout>
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,8 +22,13 @@ import com.daoyiksw.browsesocial.pub.holder.RecycleViewDivider;
 import com.daoyiksw.browsesocial.pub.holder.WrapContentLinearLayoutManager;
 import com.daoyiksw.browsesocial.ui.index.adapter.MyMenuAdapter;
 import com.daoyiksw.browsesocial.ui.index.bean.MyMenuBean;
+import com.daoyiksw.browsesocial.ui.user.activity.AboutActivity;
 import com.daoyiksw.browsesocial.ui.user.activity.AccountActivity;
+import com.daoyiksw.browsesocial.ui.user.activity.CollectActivity;
 import com.daoyiksw.browsesocial.ui.user.activity.CommentActivity;
+import com.daoyiksw.browsesocial.ui.user.activity.FaceBackActivity;
+import com.daoyiksw.browsesocial.ui.user.activity.InviteActivity;
+import com.daoyiksw.browsesocial.ui.user.activity.MemberActivity;
 import com.daoyiksw.browsesocial.ui.user.activity.SettingActivity;
 import com.daoyiksw.browsesocial.ui.user.activity.UserInfoActivity;
 import com.daoyiksw.browsesocial.untils.MacUtils;
@@ -57,6 +63,8 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     private MyMenuAdapter myMenuAdapter;// 适配器
 
     private CallDialog callDialog;// 客服电话
+
+    private Button openVIP; // 开通会员
 
 
     {
@@ -115,6 +123,9 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             }
         });
 
+        openVIP=view.findViewById(R.id.openVIP);
+        openVIP.setOnClickListener(this);
+
     }
 
     @Override
@@ -152,17 +163,17 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                        case 1: // 我的评论
                            CommentActivity.star(getActivity());
                            break;
-                       case 2:
-
+                       case 2: // 我的收藏
+                           CollectActivity.start(getActivity());
                            break;
-                       case 3:
-
+                       case 3: // 意见反馈
+                           FaceBackActivity.start(getActivity());
                            break;
-                       case 4:
-
+                       case 4:  // 邀请有礼
+                           InviteActivity.start(getActivity());
                            break;
-                       case 5:
-
+                       case 5:// 关于我们
+                           AboutActivity.start(getActivity());
                            break;
                        case 6: // 客服中心
                            callDialog.show();
@@ -189,6 +200,9 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.useriamge:
                 UserInfoActivity.star(getActivity());
+                break;
+            case R.id.openVIP: // 立即开通
+                MemberActivity.start(getActivity());
                 break;
 
         }

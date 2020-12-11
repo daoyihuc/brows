@@ -25,8 +25,9 @@ public class AccountActivity extends BaseActivity implements View.OnClickListene
 
     private Titlabar titlabar;
 
-    private Button recordButton;
-    private TextView giftButton;
+    private Button recordButton; //账户记录
+    private TextView giftButton; // 礼物收益记录
+    private  Button Recharge,withdraw;// 充值 提现
 
     public static void start(Activity activity){
         Intent intent=new Intent();
@@ -64,6 +65,13 @@ public class AccountActivity extends BaseActivity implements View.OnClickListene
         // 礼物收益记录
         giftButton=findViewById(R.id.giftButton);
         giftButton.setOnClickListener(this);
+
+        // 充值
+        Recharge=findViewById(R.id.Recharge);
+        // 提现
+        withdraw=findViewById(R.id.withdraw);
+        Recharge.setOnClickListener(this);
+        withdraw.setOnClickListener(this);
     }
 
     @Override
@@ -79,11 +87,17 @@ public class AccountActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.recordButton:
+            case R.id.recordButton: // 账户记录
                 AccountRecordsActivity.start(this);
                 break;
-            case R.id.giftButton:
+            case R.id.giftButton: // 礼物收益记录
                 GiftIncomeActivity.start(this);
+                break;
+            case R.id.Recharge:
+                RechargeActivity.start(this);
+                break;
+            case R.id.withdraw:
+                WithDrawActivity.start(this);
                 break;
         }
     }

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daoyiksw.browsesocial.views.compant.SwipeItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="夏季地毯保养方法介绍 地毯清洗需注意什么?"
+                android:textColor="#ff333333"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/useriamge"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/name"
+                android:layout_marginTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/homebanner" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/useriamge"
+                android:text="张张装饰"
+                android:textColor="#ff838181"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/readcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/username"
+                android:drawableLeft="@mipmap/pingl"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical|center"
+                android:text="630"
+                android:textColor="#ff838181"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/readcount"
+                android:text="今日头条"
+                android:textColor="#ff838181"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/newimage"
+            android:layout_width="104dp"
+            android:layout_height="72dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/btn_delete"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+
+</com.daoyiksw.browsesocial.views.compant.SwipeItemLayout>

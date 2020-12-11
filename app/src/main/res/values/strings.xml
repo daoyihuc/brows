@@ -15,4 +15,7 @@
     <string name="loginLablePhone">手机号</string>
     <string name="loginLablePass">请输入密码</string>
 
+    <string name="msg_recall_by_self">This message has been recalled by myself</string>
+    <string name="msg_recall_by_user">This message has been recalled by %1$s</string>
+
 </resources>

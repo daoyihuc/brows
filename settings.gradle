@@ -1,2 +1,4 @@
+
+include ':easeui'
 include ':app'
 rootProject.name = "Browsesocial"
