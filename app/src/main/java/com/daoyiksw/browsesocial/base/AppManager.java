@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 
-import com.shanyue88.shanyueshenghuo.ui.base.activity.BaseActivity;
-import com.shanyue88.shanyueshenghuo.ui.home.activity.MainActivity;
+import com.daoyiksw.browsesocial.MainActivity;
+import com.daoyiksw.browsesocial.consts.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

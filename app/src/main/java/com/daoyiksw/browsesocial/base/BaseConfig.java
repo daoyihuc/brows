@@ -1,6 +1,7 @@
 package com.daoyiksw.browsesocial.base;
 
-import com.shanyue88.shanyueshenghuo.BuildConfig;
+
+import com.daoyiksw.browsesocial.BuildConfig;
 
 /**
  * @author 道义（daoyi）

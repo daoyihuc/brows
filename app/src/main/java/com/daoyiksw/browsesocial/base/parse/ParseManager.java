@@ -1,7 +1,11 @@
 package com.daoyiksw.browsesocial.base.parse;
 
 import android.content.Context;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
+
+import com.daoyiksw.browsesocial.base.DemoHelper;
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.domain.EaseUser;
@@ -15,7 +19,6 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
-import com.shanyue88.shanyueshenghuo.base.DemoHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,6 +133,7 @@ public class ParseManager {
 				callback.onSuccess(value);
 			}
 
+			@RequiresApi(api = Build.VERSION_CODES.O)
 			@Override
 			public void onError(int error, String errorMsg) {
 				if (error == ParseException.OBJECT_NOT_FOUND) {

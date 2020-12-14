@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.next.easynavigation.view.EasyNavigationBar
+    <com.daoyiksw.browsesocial.views.EasyNavigationBars
         android:id="@+id/EasyNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

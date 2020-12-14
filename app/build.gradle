@@ -75,6 +75,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            assets.srcDirs = ['src/main/assets']    //百度地图jar包缺失assets文件夹资源，导致MapView无法使用
+//            jni.srcDirs = []    //disable automatic ndk-build
+        }
+    }
 
 
 }
@@ -161,6 +168,9 @@ dependencies {
 
     //环信sdk
     implementation project(':easeui')
+    implementation 'com.parse:parse-android:1.13.1'
 
+
+    implementation 'com.github.rhlff:NestedScrollWebView:v1.1.1'
 
 }

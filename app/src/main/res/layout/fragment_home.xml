@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eeeeee"
@@ -11,89 +11,90 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/box"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="wrap_content">
+
             <LinearLayout
                 android:id="@+id/header_box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="5dp"
-                android:paddingBottom="5dp"
-                >
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
+
                 <ImageView
                     android:layout_width="61dp"
                     android:layout_height="18dp"
-                    android:src="@mipmap/logo"
-                    app:tint="@color/purple"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="38dp"
-                    />
+                    android:src="@mipmap/logo"
+                    app:tint="@color/purple" />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="搜索常见资讯"
                     android:layout_marginRight="12dp"
-                    android:textSize="12sp"
+                    android:background="@drawable/shap_grayradiu"
+                    android:drawableLeft="@drawable/ic_baseline_search_24"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="搜索常见资讯"
+                    android:maxLength="25"
+                    android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:paddingLeft="10dp"
-                    android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_baseline_search_24"
-                    android:background="@drawable/shap_grayradiu"
-                    android:maxLength="25"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header_box"
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/menuRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/banner"
+                    android:layout_marginTop="17dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/section_box"
+                android:orientation="vertical">
+
+                <com.daoyiksw.browsesocial.views.X5WebView
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     />
             </LinearLayout>
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/header_box"
-                >
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-
-                    <com.youth.banner.Banner
-                        android:id="@+id/banner"
-                        android:layout_width="match_parent"
-                        android:layout_height="170dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="10dp"
-                        />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/menuRecycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/banner"
-                        android:layout_marginTop="17dp"
-                        />
-                    <WebView
-                        android:id="@+id/webview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/menuRecycler"
-                        android:layout_marginTop="10dp"
-                        />
-
-                </RelativeLayout>
-
-
-            </androidx.core.widget.NestedScrollView>
         </RelativeLayout>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 
 
 </RelativeLayout>

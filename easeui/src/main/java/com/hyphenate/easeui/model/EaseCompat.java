@@ -1,26 +1,23 @@
 package com.hyphenate.easeui.model;
 
 import android.app.Activity;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+
 import com.hyphenate.easeui.R;
+import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.util.EMLog;
-import com.hyphenate.util.FileUtils;
 import com.hyphenate.util.UriUtils;
 import com.hyphenate.util.VersionUtils;
 
@@ -33,9 +30,9 @@ import java.io.File;
 public class EaseCompat {
     private static final String TAG = "EaseCompat";
 
-    public static void openImage(Activity context, int requestCode) {
+    public static void openImage(EaseChatFragment context, int requestCode) {
         Intent intent = null;
-        if(VersionUtils.isTargetQ(context)) {
+        if(VersionUtils.isTargetQ(context.getActivity())) {
             intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         }else {
             intent = new Intent(Intent.ACTION_GET_CONTENT);

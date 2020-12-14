@@ -1,8 +1,5 @@
 package com.daoyiksw.browsesocial;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,12 +7,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import androidx.fragment.app.Fragment;
 
 import com.daoyiksw.browsesocial.consts.BaseActivity;
+import com.daoyiksw.browsesocial.ui.index.fragment.ChatFragmentParent;
 import com.daoyiksw.browsesocial.ui.index.fragment.HomeFragment;
-import com.daoyiksw.browsesocial.ui.index.fragment.MessageFragment;
 import com.daoyiksw.browsesocial.ui.index.fragment.MyFragment;
 import com.daoyiksw.browsesocial.untils.MacUtils;
+import com.daoyiksw.browsesocial.views.EasyNavigationBars;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.next.easynavigation.view.EasyNavigationBar;
 
 import java.util.ArrayList;
@@ -24,11 +27,12 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
 
-    private EasyNavigationBar easyNavigationBar;
+    private EasyNavigationBars easyNavigationBar;
     private String[] tabArr={"首页","聊天室","我的"};
     private int[] iconArr=null;
     private int[] iconArr1=null;
     private List<Fragment> list;
+    private int color = 0xffffffff;
 
     {
         list=new ArrayList<>();
@@ -67,7 +71,7 @@ public class MainActivity extends BaseActivity {
                 .selectTextColor(Color.parseColor("#333333"))   //Tab选中时字体颜色
                 .scaleType(ImageView.ScaleType.CENTER_INSIDE)  //同 ImageView的ScaleType
                 .navigationBackground(Color.parseColor("#FFFFFF"))   //导航栏背景色
-                .setOnTabClickListener(new EasyNavigationBar.OnTabClickListener() {
+                .setOnTabClickListener(new EasyNavigationBars.OnTabClickListener() {
                     @Override
                     public boolean onTabSelectEvent(View view, int position) {
                         //Tab点击事件  return true 页面不会切换
@@ -79,7 +83,23 @@ public class MainActivity extends BaseActivity {
                                 break;
                             case 1:
                                 MacUtils.clearStatus(MainActivity.this);
-                                ((MessageFragment)list.get(position)).changeStatus();
+                                ((ChatFragmentParent)list.get(position)).changeStatus();
+                                color = 0x00000000;
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        int childCount = easyNavigationBar.getNavigationLayout().getChildCount();
+                                        LinearLayout navigationLayout = easyNavigationBar.getNavigationLayout();
+                                        navigationLayout.setBackgroundColor(0x00000000);
+                                        Log.e("导航栏子类",""+childCount);
+                                    }
+                                });
+
+
+                                break;
+                                case 2:
+                                MacUtils.clearStatus(MainActivity.this);
+                                ((MyFragment)list.get(position)).changeStatus();
                                 break;
 
                         }
@@ -100,22 +120,56 @@ public class MainActivity extends BaseActivity {
                 .hasPadding(true)    //true ViewPager布局在导航栏之上 false有重叠
                 .centerNormalTextColor(Color.parseColor("#ff0000"))    //加号文字未选中时字体颜色
                 .centerSelectTextColor(Color.parseColor("#00ff00"))
+                .navigationBackground(color)
                 .build();//加号文字选中时字体颜色
     }
 
     @Override
     protected void initData() {
+        this.login_HX("1","123456");
         tabArr=new String[]{"首页","聊天室","我的"};
         iconArr=new int[]{R.mipmap.shouye,R.mipmap.liaotian,R.mipmap.wode};
         iconArr1=new int[]{R.mipmap.shouye1,R.mipmap.liaotian1,R.mipmap.wode1};
 //        list.add();
+        ChatFragmentParent chatFragmentParent = new ChatFragmentParent();
         list.add(new HomeFragment());
-        list.add(new MessageFragment());
+//        list.add(new MessageFragment());
+        list.add(chatFragmentParent);
         list.add(new MyFragment());
     }
 
     @Override
     protected <T> T Https() {
         return null;
+    }
+
+
+    private void login_HX(String uniqueId,String pwd){
+        EMClient.getInstance().login(uniqueId, pwd, new EMCallBack() {
+            @Override
+            public void onSuccess() {
+//
+//                String name = UserInfoHelper.getUserNickName(MyApplication.instance());
+//                String avatar = UserInfoHelper.getUserAvatar(MyApplication.instance());
+                // 将自己服务器返回的环信账号、昵称和头像URL设置到帮助类中。
+//                DemoHelper.getInstance().setCurrentUserName(uniqueId); // 环信Id
+//                DemoHelper.getInstance().getUserProfileManager().updateCurrentUserNickName(name);
+//                DemoHelper.getInstance().getUserProfileManager().setCurrentUserAvatar(avatar);
+                Log.e("Login","开始跳转");
+//                EMClient.getInstance().groupManager().loadAllGroups();
+//                EMClient.getInstance().chatManager().loadAllConversations();
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Log.e("Login",s);
+            }
+
+            @Override
+            public void onProgress(int i, String s) {
+
+            }
+        });
     }
 }

@@ -17,7 +17,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.shanyue88.shanyueshenghuo.base.DemoHelper;
+import com.daoyiksw.browsesocial.base.DemoHelper;
 
 
 public class DbOpenHelper extends SQLiteOpenHelper {
@@ -61,13 +61,13 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 	
 	public static DbOpenHelper getInstance(Context context) {
 		if (instance == null) {
-			instance = new DbOpenHelper(context.getApplicationContext());
+			instance = new DbOpenHelper(context);
 		}
 		return instance;
 	}
 	
 	private static String getUserDatabaseName() {
-        return  DemoHelper.getInstance().getCurrentUsernName() + "_shanyue.db";
+        return  DemoHelper.getInstance().getCurrentUsernName() + "_borwsesocial.db";
     }
 	
 	@Override

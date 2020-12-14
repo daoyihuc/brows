@@ -1,26 +1,20 @@
 package com.daoyiksw.browsesocial.ui.index.fragment;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.ValueCallback;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.daoyiksw.browsesocial.R;
@@ -28,10 +22,6 @@ import com.daoyiksw.browsesocial.consts.BaseFragment;
 import com.daoyiksw.browsesocial.pub.holder.ItemOffsetDecoration;
 import com.daoyiksw.browsesocial.pub.holder.MultiplePagerScaleInTransformer;
 import com.daoyiksw.browsesocial.pub.holder.NpaGridLayoutManager;
-import com.daoyiksw.browsesocial.pub.holder.RecycleViewDivider;
-import com.daoyiksw.browsesocial.pub.holder.SpacesItemDecoration;
-import com.daoyiksw.browsesocial.pub.holder.SpacesItemDecorations;
-import com.daoyiksw.browsesocial.pub.holder.WrapContentLinearLayoutManager;
 import com.daoyiksw.browsesocial.ui.index.adapter.Home_Banner;
 import com.daoyiksw.browsesocial.ui.index.adapter.HotAdapter;
 import com.daoyiksw.browsesocial.ui.index.adapter.MenuAdapter;
@@ -40,11 +30,13 @@ import com.daoyiksw.browsesocial.ui.index.bean.HotBean;
 import com.daoyiksw.browsesocial.ui.index.bean.MenuBean;
 import com.daoyiksw.browsesocial.ui.index.bean.NewBean;
 import com.daoyiksw.browsesocial.ui.index.bean.image_banner_home;
-import com.daoyiksw.browsesocial.untils.MacUtils;
 import com.daoyiksw.browsesocial.untils.StatusBarUtils_d;
+import com.daoyiksw.browsesocial.views.X5WebView;
 import com.daoyiksw.browsesocial.views.compant.Titlabar;
 import com.daoyiksw.browsesocial.webview.MyWebChromeClient;
 import com.jaeger.library.StatusBarUtil;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebViewClient;
 import com.youth.banner.Banner;
 import com.youth.banner.config.BannerConfig;
 import com.youth.banner.config.IndicatorConfig;
@@ -74,7 +66,7 @@ public class HomeFragment extends BaseFragment {
     private MenuAdapter menuAdapter;// 适配器
     private HotAdapter hotAdapter; // 今日热榜适配器
     private NewAdapter newAdapter;// 新闻资讯适配器
-    private WebView webView; // 网页展示
+    private X5WebView webView; // 网页展示
 
 
     private String url;
@@ -213,15 +205,27 @@ public class HomeFragment extends BaseFragment {
         settings.setLoadsImagesAutomatically(true); // 支持自动加载图片
         settings.setDefaultTextEncodingName("utf-8");// 设置编码格式
         webView.setWebChromeClient(new MyWebChromeClient());
+//        webView.loadUrl("about:blank");
+        //适应屏幕
+        settings.setLoadWithOverviewMode(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                String urls = "";
+//                view.loadUrl("about:blank");
 //                return super.shouldOverrideUrlLoading(view, request);
-                String urls = request.getUrl().toString();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                     urls = request.getUrl().toString();
+                } else {
+                     urls = String.valueOf(request.getUrl());
+                }
+
                 try {
+                    view.loadUrl(urls);
                     if (urls.startsWith("http:") || urls.startsWith("https:")) {
-                        view.loadUrl(urls);
+
                     } else {
 //                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls));
 //                        startActivity(intent);
@@ -234,24 +238,28 @@ public class HomeFragment extends BaseFragment {
 
             //页面加载结束时
 
-            public void onPageFinished(WebView view, String url) {
+            public void onPageFinished(com.tencent.smtt.sdk.WebView view, String url) {
                 super.onPageFinished(view, url);
             }
             //界面开始加载时
 
             @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            public void onPageStarted(com.tencent.smtt.sdk.WebView view, String url, Bitmap favicon) {
+//                view.loadUrl("about:blank");
                 super.onPageStarted(view, url, favicon);
 //                dailog.show();
 
+                Log.e("webView","开始加载");
             }
             //正在加载时
 
             @Override
-            public void onLoadResource(WebView view, String url) {
+            public void onLoadResource(com.tencent.smtt.sdk.WebView view, String url) {
+
                 super.onLoadResource(view, url);
 //                dailog.show();
 
+                Log.e("webView","正在加载");
             }
         });
     }

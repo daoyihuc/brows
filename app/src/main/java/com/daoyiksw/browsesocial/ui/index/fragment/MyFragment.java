@@ -36,6 +36,7 @@ import com.daoyiksw.browsesocial.untils.StatusBarUtils_d;
 import com.daoyiksw.browsesocial.untils.SystemUtils;
 import com.daoyiksw.browsesocial.views.compant.Titlabar;
 import com.daoyiksw.browsesocial.views.dialog.CallDialog;
+import com.jaeger.library.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,7 +187,10 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             }
         });
     }
-
+    //状态栏修改
+    public void changeStatus(){
+        StatusBarUtil.setTranslucentForImageViewInFragment(getActivity(),0,box);
+    }
 
 
     @Override
