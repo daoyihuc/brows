@@ -1,57 +1,39 @@
 package com.daoyiksw.browsesocial.ui.first.activity;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import com.daoyiksw.browsesocial.R;
 import com.daoyiksw.browsesocial.consts.BaseActivity;
-import com.daoyiksw.browsesocial.ui.login.activity.LoginActivity;
 import com.daoyiksw.browsesocial.ui.login.activity.LoginIndexActivity;
 import com.daoyiksw.browsesocial.untils.MacUtils;
 import com.daoyiksw.browsesocial.views.X5WebView;
-import com.daoyiksw.browsesocial.views.dialog.LoadingDialog;
-import com.daoyiksw.browsesocial.webview.MyWebChromeClient;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.TimerTask;
 import java.util.regex.Pattern;
 
 import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 
-public class FirstActivity extends BaseActivity implements View.OnClickListener {
+public class FirstActivitys extends BaseActivity implements View.OnClickListener {
 
     private String mCM;
     private ValueCallback<Uri> uploadFile;
@@ -63,7 +45,7 @@ public class FirstActivity extends BaseActivity implements View.OnClickListener 
     public ValueCallback<Uri> mUploadMessage;
     public static final int FILE_CHOOSER_RESULT_CODE = 5173;
 
-    private WebView webView; // 网页展示
+    private X5WebView webView; // 网页展示
 
     String selectUrl = "";
     String url = "http://106.52.216.106:8084";
@@ -109,7 +91,7 @@ public class FirstActivity extends BaseActivity implements View.OnClickListener 
 
     // webview
     private void setWebView() {
-        webView = new WebView(FirstActivity.this);
+        webView = new X5WebView(FirstActivitys.this);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(-1, -1);
         webView.setLayoutParams(params);
         WebSettings settings = webView.getSettings();
@@ -149,7 +131,7 @@ public class FirstActivity extends BaseActivity implements View.OnClickListener 
             // For Android  >= 5.0
             public boolean onShowFileChooser(WebView webView,
                                              ValueCallback<Uri[]> filePathCallback,
-                                             WebChromeClient.FileChooserParams fileChooserParams) {
+                                             FileChooserParams fileChooserParams) {
                 uploadFiles = filePathCallback;
                 openFileChooseProcess();
                 return true;

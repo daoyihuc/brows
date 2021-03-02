@@ -1,9 +1,21 @@
 package com.daoyiksw.browsesocial.webview;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.webkit.ValueCallback;
+
+import com.daoyiksw.browsesocial.MainActivity;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 /**
  * @author:"道翼(yanwen)"
@@ -13,6 +25,11 @@ import com.tencent.smtt.sdk.WebView;
  */
 public class MyWebChromeClient extends WebChromeClient {
 
+
+    private static final int REQUEST_STORAGE = 1;
+    private static final int REQUEST_LOCATION = 2;
+    public ValueCallback<Uri> mUploadMessage;
+    public static final int FILECHOOSER_RESULTCODE = 5173;
 
     //获取网页进度条并显示
     @Override
@@ -46,6 +63,8 @@ public class MyWebChromeClient extends WebChromeClient {
     public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
         return super.onJsPrompt(view, url, message, defaultValue, result);
     }
+
+//
 
 
 }
